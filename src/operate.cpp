@@ -159,6 +159,10 @@ int Operate::getCpuTemp() const {
     return helper.getValue(cpuTempAddress);
 }
 
+double Operate::getCpuPackagePower() const {
+    return helper.getCpuPackagePower();
+}
+
 std::optional<int> Operate::getGpuTemp() const {
     if (msiEcHelper.isMsiEcModuleLoaded())
         if (!msiEcHelper.hasGPURealtimeTemperature())

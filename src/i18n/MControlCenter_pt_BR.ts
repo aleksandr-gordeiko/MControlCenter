@@ -362,5 +362,9 @@ Make sure that either Power Profiles Daemon or TuneD is installed and restart th
         <source>Power-limit control is unavailable. It requires EC firmware 14C6EMS1.109 and the Intel RAPL MMIO power-limit interface.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>CPU power:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

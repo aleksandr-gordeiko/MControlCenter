@@ -57,6 +57,7 @@ private:
     void updateBatteryThreshold();
     void updateChargingStatus();
     void updateCpuTemp();
+    void updateCpuPower();
     void updateGpuTemp();
     void updateFan1Speed();
     void updateFan2Speed();

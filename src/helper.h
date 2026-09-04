@@ -37,6 +37,7 @@ public:
     int getValue(int address) const;
     QByteArray getValues(int startAddress, int size) const;
     void putValue(int address, int value);
+    [[nodiscard]] double getCpuPackagePower() const;
     [[nodiscard]] bool isPowerLimitControlSupported() const;
     void enforcePowerLimit(int watts, bool onlyWhenCoolerBoost) const;
     void quit();

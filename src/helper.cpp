@@ -101,6 +101,13 @@ void Helper::putValue(int address, int value) {
     printError(iface->lastError());
 }
 
+double Helper::getCpuPackagePower() const {
+    if (QDBusReply<double> reply = iface->call("getCpuPackagePower"); reply.isValid())
+        return reply.value();
+    printError(iface->lastError());
+    return -1.0;
+}
+
 bool Helper::isPowerLimitControlSupported() const {
     if (QDBusReply<bool> reply = iface->call("isPowerLimitControlSupported"); reply.isValid())
         return reply.value();

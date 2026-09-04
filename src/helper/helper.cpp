@@ -30,8 +30,11 @@ ReadWrite rw;
 
 const QString coolerBoostPath = "/sys/devices/platform/msi-ec/cooler_boost";
 const QString ecFirmwareVersionPath = "/sys/devices/platform/msi-ec/fw_version";
+const QString cpuEnergyPath = "/sys/class/powercap/intel-rapl-mmio:0/energy_uj";
+const QString cpuMaxEnergyRangePath = "/sys/class/powercap/intel-rapl-mmio:0/max_energy_range_uj";
 const QString cpuPowerLimitPath = "/sys/class/powercap/intel-rapl-mmio:0/constraint_0_power_limit_uw";
 const QByteArray supportedEcFirmwareVersion = "14C6EMS1.109";
+const qint64 maximumCpuEnergySampleIntervalMs = 5000;
 
 void Helper::quit() const {
     QTimer::singleShot(0, QCoreApplication::instance(), &QCoreApplication::quit);
@@ -46,6 +49,52 @@ void Helper::putValue(const int &address, const int &value) const {
         rw.writeToFile(address, value);
     else
         fprintf(stderr, "tried to input invalid value. Address: %d, value: %d\n", address, value);
+}
+
+double Helper::getCpuPackagePower() {
+    QFile cpuEnergyFile(cpuEnergyPath);
+    if (!cpuEnergyFile.open(QIODevice::ReadOnly)) {
+        cpuEnergySampleTimer.invalidate();
+        return -1.0;
+    }
+
+    bool validCpuEnergy = false;
+    const quint64 currentCpuEnergyUj = cpuEnergyFile.readAll().trimmed().toULongLong(&validCpuEnergy);
+    if (!validCpuEnergy) {
+        cpuEnergySampleTimer.invalidate();
+        return -1.0;
+    }
+
+    if (!cpuEnergySampleTimer.isValid()) {
+        previousCpuEnergyUj = currentCpuEnergyUj;
+        cpuEnergySampleTimer.start();
+        return -1.0;
+    }
+
+    const qint64 elapsedMilliseconds = cpuEnergySampleTimer.restart();
+    const quint64 previousEnergyUj = previousCpuEnergyUj;
+    previousCpuEnergyUj = currentCpuEnergyUj;
+    if (elapsedMilliseconds <= 0 || elapsedMilliseconds > maximumCpuEnergySampleIntervalMs)
+        return -1.0;
+
+    quint64 consumedEnergyUj = 0;
+    if (currentCpuEnergyUj >= previousEnergyUj) {
+        consumedEnergyUj = currentCpuEnergyUj - previousEnergyUj;
+    } else {
+        QFile maxEnergyRangeFile(cpuMaxEnergyRangePath);
+        if (!maxEnergyRangeFile.open(QIODevice::ReadOnly))
+            return -1.0;
+
+        bool validMaxEnergyRange = false;
+        const quint64 maxEnergyRangeUj = maxEnergyRangeFile.readAll().trimmed().toULongLong(&validMaxEnergyRange);
+        if (!validMaxEnergyRange || previousEnergyUj > maxEnergyRangeUj || currentCpuEnergyUj > maxEnergyRangeUj)
+            return -1.0;
+
+        consumedEnergyUj = maxEnergyRangeUj - previousEnergyUj + currentCpuEnergyUj;
+    }
+
+    return static_cast<double>(consumedEnergyUj)
+           / (static_cast<double>(elapsedMilliseconds) * 1000.0);
 }
 
 bool Helper::isPowerLimitControlSupported() const {

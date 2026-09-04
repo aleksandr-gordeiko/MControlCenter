@@ -262,6 +262,7 @@ void MainWindow::updateData() {
         updateBatteryCharge();
         updateChargingStatus();
         updateCpuTemp();
+        updateCpuPower();
         updateGpuTemp();
         updateFanMode();
         updateFan1Speed();
@@ -409,6 +410,16 @@ void MainWindow::updateChargingStatus() {
 
 void MainWindow::updateCpuTemp() {
     ui->cpuTempValueLabel->setText(intToQString(operate.getCpuTemp()) + " °C");
+}
+
+void MainWindow::updateCpuPower() {
+    const double cpuPackagePower = operate.getCpuPackagePower();
+    if (cpuPackagePower < 0.0) {
+        ui->cpuPowerValueLabel->setText("-");
+        return;
+    }
+
+    ui->cpuPowerValueLabel->setText(QString::number(cpuPackagePower, 'f', 1) + " W");
 }
 
 void MainWindow::updateGpuTemp() {

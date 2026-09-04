@@ -362,5 +362,9 @@ Make sure that UPower is installed and running then restart the system.</source>
 Make sure that either Power Profiles Daemon or TuneD is installed and restart the system.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>CPU power:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

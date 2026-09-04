@@ -71,6 +71,7 @@ public:
     [[nodiscard]] int getBatteryThreshold() const;
     [[nodiscard]] charging_state getChargingStatus() const;
     [[nodiscard]] int getCpuTemp() const;
+    [[nodiscard]] double getCpuPackagePower() const;
     [[nodiscard]] std::optional<int> getGpuTemp() const;
     [[nodiscard]] int getFan1Speed() const;
     [[nodiscard]] std::optional<int> getFan2Speed() const;
