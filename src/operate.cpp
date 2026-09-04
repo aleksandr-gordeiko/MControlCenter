@@ -478,6 +478,14 @@ void Operate::setFanModeAdvanced(bool enabled) const {
     Settings::setValue(settingsGroup + "fanModeAdvanced", enabled);
 }
 
+bool Operate::isPowerLimitControlSupported() const {
+    return helper.isPowerLimitControlSupported();
+}
+
+void Operate::enforcePowerLimit(int watts, bool onlyWhenCoolerBoost) const {
+    helper.enforcePowerLimit(watts, onlyWhenCoolerBoost);
+}
+
 int Operate::getValue(int address) const {
     helper.updateData();
     return helper.getValue(address);

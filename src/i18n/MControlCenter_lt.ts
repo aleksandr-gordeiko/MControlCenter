@@ -5,271 +5,362 @@
     <name>MainWindow</name>
     <message>
         <source>EC Version:</source>
-        <translation type="EC Versija:"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>EC Build:</source>
-        <translation type="EC Versija:"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Battery charge:</source>
-        <translation type="Baterijos įkrova:"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Battery threshold:</source>
-        <translation type="Baterijos slenksčio būklė"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>CPU temp:</source>
-        <translation type="CPU temperatūra"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>GPU temp:</source>
-        <translation type="GPU temperatūra"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Cooler Boost</source>
-        <translation type="Aušinimo Boost"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Battery</source>
-        <translation type="Baterija"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Best for Mobility</source>
-        <translation type="Geriausia mobilumui"></translation>
-    </message>
-    <message>
-        <source>Charge the battery to 100% all the time</source>
-        <translation type="Baterija visada įkraunama iki 100%"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="Subalansuotas"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Charge the battery when under 70%, stop at 80%</source>
-        <translation type="Įkrauna bateriją kai mažiau nei 70%, sustoja kai 80%"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Best for battery</source>
-        <translation type="Geriausia baterijai"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Charge the battery when under 50%, stop at 60%</source>
-        <translation type="Įkrauna bateriją kai mažiau nei 50%, sustoja kai 80%"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="Tinkintas"></translation>
-    </message>
-    <message>
-        <source>Keyboard Backlit</source>
-        <translation type="Klaviatūros apšvietimas"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Always on</source>
-        <translation type="Visada įjungtas"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Auto turn off in 10 sec</source>
-        <translation type="Automatiškai išsijungia po 10 sekundžių"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>WebCam</source>
-        <translation type="Vaizdo kamera"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation type="Debugavimas"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="Apie"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="Versija:"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Charging status:</source>
-        <translation type="Įkrovos būsena"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Charging</source>
-        <translation type="Kraunasi"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Discharging</source>
-        <translation type="Išsikrauna"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Not charging</source>
-        <translation type="Nesikrauna"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="Nežinoma"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Swap FN and Super buttons</source>
-        <translation type="Pakeisti FN ir Super mygtukus"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Fully charged</source>
-        <translation type="Pilnai įkrautas"></translation>
-    </message>
-    <message>
-        <source>Fully charged (Discharging)</source>
-        <translation type="Pilnai įkrautas (Išsikrauna)"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>rpm</source>
-        <translation type="apm"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="Režimas"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Silent</source>
-        <translation type="Tylus"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Super Battery</source>
-        <translation type="Tausojantis bateriją"></translation>
-    </message>
-    <message>
-        <source>Failed to load the ec_sys kernel module</source>
-        <translation type="Nepavyko užkrauti ec_sys branduolio modulio"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="Pritaikyti"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Show</source>
-        <translation type="Rodyti"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="Išeiti"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Charge limit</source>
-        <translation type="Įkrovos limitas"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="Automatiškai"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="Paprastas"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="Pažangus"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Cooling</source>
-        <translation type="Aušinimas"></translation>
-    </message>
-    <message>
-        <source>Fan 1 speed</source>
-        <translation type="1 Ventiliatoriaus greitis"></translation>
-    </message>
-    <message>
-        <source>Fan 2 speed</source>
-        <translation type="2 Ventiliatoriaus greitis"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="Atkūrti"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Fan control</source>
-        <translation type="Ventiliatoriaus kontrolė"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Enable advanced fan control</source>
-        <translation type="Įjungti pažangią ventiliatoriaus kontrolę"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Overview</source>
-        <translation type="Apžvalga"></translation>
-    </message>
-    <message>
-        <source>&amp;High Performance</source>
-        <translation type="Aukščiausias našumas"></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Maximum performance at the cost of heat and increased power consumption&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="Maksimalus veikimas reikalaujantis daugiau elektros ir aukštesnės šilumos"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>The middle spot between fan noise and power usage</source>
-        <translation type="Vidurinė pozicija tarp ventiliatoriaus triukšmo ir elektros suvartojimo"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Low fan noise and moderate power usage</source>
-        <translation type="Mažas ventiliatoriaus triukšmas ir vidutinis elektros suvartojimas"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Limits performance and turns off fans at lower temperatures</source>
-        <translation type="Riboja našumą ir išjungia ventiliatorius esant žemesnėms temperatūroms"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>GPU Fan:</source>
-        <translation type="GPU ventiliatorius"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>CPU Fan:</source>
-        <translation type="CPU ventiliatorius"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>USB Power</source>
-        <translation type="USB maitinimas"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>FN ⇄ Meta</source>
-        <translation type="FN ⇄ Meta"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Current fan Mode:</source>
-        <translation type="Dabartinis ventiliatoriaus režimas"></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you mainly use your laptop with the charger plugged most of the time, it is recommended to set the charge capacity at a lower percentage (60% or 80%) to prolong your battery lifecycle.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="Jeigu dažniausiai naudojate savo nešiojamąjį kompiuterį su įkrovikliu, esant įjungtam į elektrą, rekomenduojama nustatyti įkrovimo talpą mažesne procentine dalimi (60% arba 80%) siekiant ilgesnės baterijos gyvavimo trukmės."></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Keyboard</source>
-        <translation type="Klaviatūra"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;MC&lt;/span&gt;ontrol&lt;span style=&quot; font-weight:700;&quot;&gt;C&lt;/span&gt;enter (MCC) is an application that allows you to change the settings of MSI laptops running Linux.&lt;/p&gt;&lt;p&gt;MCC acts as a graphical interface for the &lt;span style=&quot; font-weight:700;&quot;&gt;MSI-EC &lt;/span&gt;driver that already exist in the Linux kernel, if your device is not supported (grey buttons/limited in-app functionality), please visit the msi-ec github page to get help.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="(MCC) yra programa, leidžianti keisti MSI nešiojamųjų kompiuterių, veikiančių Linux, nustatymus. MCC veikia kaip grafinė sąsaja MSI-EC tvarkyklėms, kurios jau yra įtrauktos į Linux branduolį, jei jūsų įrenginys nėra palaikomas (pilki mygtukai/ribota programos funkcionalumas), prašome apsilankyti msi-ec github puslapyje, kad gautumėte pagalbą."></translation>
+        <translation></translation>
     </message>
     <message>
         <source>MCC GitHub:</source>
-        <translation type="MCC GitHub puslapis"></translation>
-    </message>
-    <message>
-        <source>MCC Bug tracker:</source>
-        <translation type="MCC Klaidų sekiklis"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>MSI-EC GitHub:</source>
-        <translation type="MSI-EC GitHub puslapis"></translation>
+        <translation></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/BeardOverflow/msi-ec&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#1ec974;&quot;&gt;https://github.com/BeardOverflow/msi-ec&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="https://github.com/BeardOverflow/msi-ec"></translation>
+        <source>This mode unlocks Advanced fan mode</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Warning&lt;/span&gt;: Writing the wrong values to the wrong addresses &lt;span style=&quot; font-weight:700;&quot;&gt;WILL BRICK YOUR DEVICE!&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Never write to EC memory without knowing how to do a proper BIOS/EC reset, keep in mind that a reset &lt;span style=&quot; font-weight:700;&quot;&gt;might not&lt;/span&gt; fix the device if the device got bricked/broken. &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="ĮSPĖJIMAS Rašant neteisingas reikšmes į neteisingus adresus GALI SUNAIKINTI JŪSŲ ĮRENGINĮ! Niekuomet neirašykite į EC atmintį be žinojimo, kaip atlikti tinkamą BIOS/EC atstatymą, turėkite omenyje, kad atstatymas gali neatsitaisyti įrenginio, jei įrenginys buvo sunaikintas/sugadintas."></translation>
+        <source>High Performance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maximum performance at the cost of heat and increased power consumption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow system&apos;s power profile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you mainly use your laptop with the charger plugged most of the time, it is recommended to set the charge capacity at a lower percentage (60% or 80%) to prolong your battery lifecycle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic Profile Switching</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On Charger:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On Battery:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Charge the battery when under 90%, stop at 100%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CPU Fan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GPU Fan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard Backlight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warning: Raising the CPU package long-term power limit (PL1) can cause extremely high temperatures, thermal throttling, instability, or hardware damage. Use this feature at your own risk and monitor CPU temperatures. The default 38 W limit is based on the laptop vendor&apos;s recommendation for this supported model. The selected limit is reapplied every second while MControlCenter is running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power limit threshold:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checking power-limit compatibility…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do not override the power limit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Override only when Cooler Boost is on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Override always</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>-</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MCC Bug Tracker:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Qt version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MSI-EC Status:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Warning&lt;/span&gt;: Writing the wrong values to the wrong addresses &lt;span style=&quot; font-weight:700;&quot;&gt;WILL BRICK YOUR DEVICE!&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Never&lt;/span&gt; write to EC memory without knowing how to do a proper &lt;span style=&quot; font-weight:700;&quot;&gt;BIOS/EC&lt;/span&gt; reset, keep in mind that a reset &lt;span style=&quot; font-weight:700;&quot;&gt;might not&lt;/span&gt; fix the device if the device got bricked/broken. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The msi-ec module is not loaded/installed.
+Check the &lt;About&gt; page for more info.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The ec_sys module couldn&apos;t be detected, it might be required to control the fans.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fallback: Only ec_sys is loaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to load both msi-ec/ec_sys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power-limit control is available for this laptop.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power-limit control is unavailable. It requires EC firmware 14C6EMS1.109 and the Intel RAPL MMIO power-limit interface.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OFF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn&apos;t connect to UPower to get charger status.
+Make sure that UPower is installed and running then restart the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn&apos;t connect to Power Profiles Daemon.
+Make sure that either Power Profiles Daemon or TuneD is installed and restart the system.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

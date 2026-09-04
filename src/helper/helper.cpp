@@ -22,10 +22,16 @@
 #include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusError>
+#include <QFile>
 #include <QProcess>
 #include <QTimer>
 
 ReadWrite rw;
+
+const QString coolerBoostPath = "/sys/devices/platform/msi-ec/cooler_boost";
+const QString ecFirmwareVersionPath = "/sys/devices/platform/msi-ec/fw_version";
+const QString cpuPowerLimitPath = "/sys/class/powercap/intel-rapl-mmio:0/constraint_0_power_limit_uw";
+const QByteArray supportedEcFirmwareVersion = "14C6EMS1.109";
 
 void Helper::quit() const {
     QTimer::singleShot(0, QCoreApplication::instance(), &QCoreApplication::quit);
@@ -40,6 +46,42 @@ void Helper::putValue(const int &address, const int &value) const {
         rw.writeToFile(address, value);
     else
         fprintf(stderr, "tried to input invalid value. Address: %d, value: %d\n", address, value);
+}
+
+bool Helper::isPowerLimitControlSupported() const {
+    if (!QFile::exists(cpuPowerLimitPath))
+        return false;
+
+    QFile ecFirmwareVersionFile(ecFirmwareVersionPath);
+    return ecFirmwareVersionFile.open(QIODevice::ReadOnly)
+           && ecFirmwareVersionFile.readAll().trimmed() == supportedEcFirmwareVersion;
+}
+
+void Helper::enforcePowerLimit(const int &watts, const bool &onlyWhenCoolerBoost) const {
+    // Keep the D-Bus API narrow: callers select a sane value in watts, while
+    // the privileged helper owns the fixed sysfs paths and unit conversion.
+    if (!isPowerLimitControlSupported() || watts < 1 || watts > 500)
+        return;
+
+    if (onlyWhenCoolerBoost) {
+        QFile coolerBoostFile(coolerBoostPath);
+        if (!coolerBoostFile.open(QIODevice::ReadOnly) || coolerBoostFile.readAll().trimmed() != "on")
+            return;
+    }
+
+    const qint64 requestedPowerLimit = static_cast<qint64>(watts) * 1000000;
+    QFile powerLimitFile(cpuPowerLimitPath);
+    if (!powerLimitFile.open(QIODevice::ReadOnly))
+        return;
+
+    bool validCurrentPowerLimit = false;
+    const qint64 currentPowerLimit = powerLimitFile.readAll().trimmed().toLongLong(&validCurrentPowerLimit);
+    powerLimitFile.close();
+    if (!validCurrentPowerLimit || currentPowerLimit == requestedPowerLimit)
+        return;
+
+    if (powerLimitFile.open(QIODevice::WriteOnly))
+        powerLimitFile.write(QByteArray::number(requestedPowerLimit));
 }
 
 bool Helper::isEcSysModuleLoaded() const {

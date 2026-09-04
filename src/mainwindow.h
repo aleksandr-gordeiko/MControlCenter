@@ -48,6 +48,8 @@ private:
     void setUpdateInterval(int msec) const;
     void setModeFromSelection(PowerProfile profile);
     void realtimeUpdate();
+    void enforcePowerLimit();
+    void updatePowerLimitAvailability();
     void loadConfigs();
 
     [[nodiscard]] QString intToQString(int value) const;
@@ -92,6 +94,8 @@ private:
     void quitApp() const;
 
     QTimer timerSleepWatcher;
+    QTimer powerLimitTimer;
+    bool powerLimitControlAvailable = false;
     qint64 timeLastWatcherInterval = 0;
     void timerSleepTimeout();
 
@@ -145,6 +149,11 @@ private slots:
     void on_keyboardBrightnessSlider_valueChanged(int value) const;
 
     void on_keyboardBacklightModeComboBox_currentIndexChanged(int index) const;
+
+    void on_powerLimitSpinBox_valueChanged(int value);
+    void on_powerLimitDisabledRadioButton_toggled(bool checked);
+    void on_powerLimitCoolerBoostRadioButton_toggled(bool checked);
+    void on_powerLimitAlwaysRadioButton_toggled(bool checked);
 
     void on_userModeOnBatteryComboBox_currentIndexChanged(int index) const;
     void on_userModeOnChargerComboBox_currentIndexChanged(int index) const;

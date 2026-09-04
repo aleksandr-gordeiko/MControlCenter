@@ -102,6 +102,8 @@ public:
     void setFan2TempSettings(QVector<int> value) const;
     void setFanMode(int value) const;
     void setFanModeAdvanced(bool enabled) const;
+    [[nodiscard]] bool isPowerLimitControlSupported() const;
+    void enforcePowerLimit(int watts, bool onlyWhenCoolerBoost) const;
 
     [[nodiscard]] int getValue(int address) const;
     void setValue(int address, int value) const;

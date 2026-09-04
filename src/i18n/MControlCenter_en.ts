@@ -116,16 +116,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Couldn&apos;t connect to UPower to get charger status.
-Make sure that UPower is installed and running then restart the app.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Couldn&apos;t connect to Power Profiles Daemon.
-Make sure that either Power Profiles Daemon or TuneD is installed and restart the app.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Mode</source>
         <translation type="unfinished"></translation>
     </message>
@@ -167,14 +157,6 @@ Make sure that either Power Profiles Daemon or TuneD is installed and restart th
     </message>
     <message>
         <source>Cooling</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fan 1 speed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fan 2 speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -324,6 +306,60 @@ Check the &lt;About&gt; page for more info.</source>
     </message>
     <message>
         <source>OFF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CPU Fan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GPU Fan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power limit threshold:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do not override the power limit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Override only when Cooler Boost is on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Override always</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn&apos;t connect to UPower to get charger status.
+Make sure that UPower is installed and running then restart the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn&apos;t connect to Power Profiles Daemon.
+Make sure that either Power Profiles Daemon or TuneD is installed and restart the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warning: Raising the CPU package long-term power limit (PL1) can cause extremely high temperatures, thermal throttling, instability, or hardware damage. Use this feature at your own risk and monitor CPU temperatures. The default 38 W limit is based on the laptop vendor&apos;s recommendation for this supported model. The selected limit is reapplied every second while MControlCenter is running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checking power-limit compatibility…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power-limit control is available for this laptop.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power-limit control is unavailable. It requires EC firmware 14C6EMS1.109 and the Intel RAPL MMIO power-limit interface.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

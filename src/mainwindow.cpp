@@ -151,7 +151,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->tabWidget->tabBar()->setExpanding(true);
     // Disable debug tab
-    ui->tabWidget->setTabVisible(5, false);
+    ui->tabWidget->setTabVisible(ui->tabWidget->indexOf(ui->debugTab), false);
     setTabsEnabled(false);
 
     if (!operate.isMsiEcLoaded()) {
@@ -170,6 +170,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(realtimeUpdateTimer, &QTimer::timeout, this, &MainWindow::realtimeUpdate);
     setUpdateInterval(1000);
 
+    connect(&powerLimitTimer, &QTimer::timeout, this, &MainWindow::enforcePowerLimit);
+    powerLimitTimer.setInterval(1000);
+    powerLimitTimer.start();
+
     // Timer to detect sleep and reapply Advanced Mode Fan if necessary
     connect(&timerSleepWatcher, &QTimer::timeout, this, &MainWindow::timerSleepTimeout);
     timerSleepWatcher.setInterval(10 * 1000);
@@ -181,6 +185,22 @@ MainWindow::MainWindow(QWidget *parent)
     ui->userModeOnBatteryComboBox->setCurrentIndex(s.getValue("Settings/UserModeOnBattery").toInt());
     ui->userModeOnChargerComboBox->setCurrentIndex(s.getValue("Settings/UserModeOnCharger").toInt());
     ui->autoPPDCheckBox->setChecked(s.getValue("Settings/autoPPDstate").toBool());
+
+    const int powerLimitWatts = s.isValueExist("Settings/PowerLimitWatts")
+                               ? s.getValue("Settings/PowerLimitWatts").toInt()
+                               : 38;
+    ui->powerLimitSpinBox->setValue(powerLimitWatts);
+    switch (s.getValue("Settings/PowerLimitOverrideMode").toInt()) {
+        case 1:
+            ui->powerLimitCoolerBoostRadioButton->setChecked(true);
+            break;
+        case 2:
+            ui->powerLimitAlwaysRadioButton->setChecked(true);
+            break;
+        default:
+            ui->powerLimitDisabledRadioButton->setChecked(true);
+            break;
+    }
 }
 
 MainWindow::~MainWindow() {
@@ -197,6 +217,7 @@ void MainWindow::setTabsEnabled(bool enabled) {
     ui->batteryTab->setEnabled(enabled);
     ui->fanControlTab->setEnabled(enabled);
     ui->keyboardTab->setEnabled(enabled);
+    ui->powerTab->setEnabled(enabled);
     ui->debugTab->setEnabled(enabled);
 
     if (modeTrayMenu)
@@ -220,6 +241,14 @@ void MainWindow::setUpdateInterval(int msec) const {
 void MainWindow::realtimeUpdate() {
     operate.updateEcDataAsync();
     updateData();
+}
+
+void MainWindow::enforcePowerLimit() {
+    if (!powerLimitControlAvailable || ui->powerLimitDisabledRadioButton->isChecked())
+        return;
+
+    operate.enforcePowerLimit(ui->powerLimitSpinBox->value(),
+                              ui->powerLimitCoolerBoostRadioButton->isChecked());
 }
 
 void MainWindow::updateData() {
@@ -255,6 +284,7 @@ void MainWindow::updateData() {
 void MainWindow::loadConfigs() {
     ui->ecVersionValueLabel->setText(QString::fromStdString(operate.getEcVersion()));
     ui->ecBuildValueLabel->setText(QString::fromStdString(operate.getEcBuild()));
+    updatePowerLimitAvailability();
 
     operate.loadSettings();
     updateUserMode();
@@ -296,6 +326,22 @@ void MainWindow::loadConfigs() {
     }
 
     updateFnSuperSwapState();
+}
+
+void MainWindow::updatePowerLimitAvailability() {
+    powerLimitControlAvailable = operate.isPowerLimitControlSupported();
+
+    ui->powerLimitLabel->setEnabled(powerLimitControlAvailable);
+    ui->powerLimitSpinBox->setEnabled(powerLimitControlAvailable);
+    ui->powerLimitDisabledRadioButton->setEnabled(powerLimitControlAvailable);
+    ui->powerLimitCoolerBoostRadioButton->setEnabled(powerLimitControlAvailable);
+    ui->powerLimitAlwaysRadioButton->setEnabled(powerLimitControlAvailable);
+
+    if (powerLimitControlAvailable) {
+        ui->powerLimitStatusLabel->setText(tr("Power-limit control is available for this laptop."));
+    } else {
+        ui->powerLimitStatusLabel->setText(tr("Power-limit control is unavailable. It requires EC firmware 14C6EMS1.109 and the Intel RAPL MMIO power-limit interface."));
+    }
 }
 
 QString MainWindow::intToQString(int value) const {
@@ -821,6 +867,30 @@ void MainWindow::on_keyboardBrightnessSlider_valueChanged(int value) const {
 
 void MainWindow::on_keyboardBacklightModeComboBox_currentIndexChanged(int index) const {
     operate.setKeyboardBacklightMode(index);
+}
+
+void MainWindow::on_powerLimitSpinBox_valueChanged(int value) {
+    Settings::setValue("Settings/PowerLimitWatts", value);
+    enforcePowerLimit();
+}
+
+void MainWindow::on_powerLimitDisabledRadioButton_toggled(bool checked) {
+    if (checked)
+        Settings::setValue("Settings/PowerLimitOverrideMode", 0);
+}
+
+void MainWindow::on_powerLimitCoolerBoostRadioButton_toggled(bool checked) {
+    if (checked) {
+        Settings::setValue("Settings/PowerLimitOverrideMode", 1);
+        enforcePowerLimit();
+    }
+}
+
+void MainWindow::on_powerLimitAlwaysRadioButton_toggled(bool checked) {
+    if (checked) {
+        Settings::setValue("Settings/PowerLimitOverrideMode", 2);
+        enforcePowerLimit();
+    }
 }
 
 void MainWindow::on_userModeOnBatteryComboBox_currentIndexChanged(int index) const {

@@ -101,6 +101,17 @@ void Helper::putValue(int address, int value) {
     printError(iface->lastError());
 }
 
+bool Helper::isPowerLimitControlSupported() const {
+    if (QDBusReply<bool> reply = iface->call("isPowerLimitControlSupported"); reply.isValid())
+        return reply.value();
+    printError(iface->lastError());
+    return false;
+}
+
+void Helper::enforcePowerLimit(int watts, bool onlyWhenCoolerBoost) const {
+    iface->call(QDBus::NoBlock, "enforcePowerLimit", watts, onlyWhenCoolerBoost);
+}
+
 void Helper::quit() {
     iface->call("quit");
     printError(iface->lastError());

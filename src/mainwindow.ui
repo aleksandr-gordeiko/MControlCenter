@@ -1813,6 +1813,112 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="powerTab">
+       <attribute name="icon">
+        <iconset theme="preferences-system-power-management"/>
+       </attribute>
+       <attribute name="title">
+        <string>Power</string>
+       </attribute>
+       <layout class="QGridLayout" name="powerTabLayout">
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="powerLimitDescriptionLabel">
+          <property name="text">
+           <string>Warning: Raising the CPU package long-term power limit (PL1) can cause extremely high temperatures, thermal throttling, instability, or hardware damage. Use this feature at your own risk and monitor CPU temperatures. The default 38 W limit is based on the laptop vendor's recommendation for this supported model. The selected limit is reapplied every second while MControlCenter is running.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="Line" name="powerLimitLine">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>10</height>
+           </size>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Shadow::Sunken</enum>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="powerLimitLabel">
+          <property name="text">
+           <string>Power limit threshold:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QSpinBox" name="powerLimitSpinBox">
+          <property name="suffix">
+           <string notr="true"> W</string>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>500</number>
+          </property>
+          <property name="value">
+           <number>38</number>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <widget class="QLabel" name="powerLimitStatusLabel">
+          <property name="text">
+           <string>Checking power-limit compatibility…</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0" colspan="2">
+         <widget class="QRadioButton" name="powerLimitDisabledRadioButton">
+          <property name="text">
+           <string>Do not override the power limit</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0" colspan="2">
+         <widget class="QRadioButton" name="powerLimitCoolerBoostRadioButton">
+          <property name="text">
+           <string>Override only when Cooler Boost is on</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0" colspan="2">
+         <widget class="QRadioButton" name="powerLimitAlwaysRadioButton">
+          <property name="text">
+           <string>Override always</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0" colspan="2">
+         <spacer name="powerTabVerticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="aboutTab">
        <attribute name="icon">
         <iconset theme="help-about"/>
